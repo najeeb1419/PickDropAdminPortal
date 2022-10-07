@@ -17,14 +17,31 @@ import { LayoutStoreService } from './layout/layout-store.service';
 
 import { BusyDirective } from './directives/busy.directive';
 import { EqualValidator } from './directives/equal-validator.directive';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         NgxPaginationModule,
-        FormsModule
+        FormsModule,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDialogModule,
+        FormsModule,
+        ReactiveFormsModule 
     ],
     declarations: [
         AbpPaginationControlsComponent,
@@ -42,7 +59,18 @@ import { FormsModule } from '@angular/forms';
         AbpModalFooterComponent,
         LocalizePipe,
         BusyDirective,
-        EqualValidator
+        EqualValidator,
+        MatButtonModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDialogModule,
+        FormsModule,
+        ReactiveFormsModule 
+
     ]
 })
 export class SharedModule {
