@@ -1,1 +1,35 @@
-<p>sub-category-action works!</p>
+<div class="form_start">
+    <form>
+  
+      <div class="inputField">
+        <label for="Category">Category</label>
+        <select class="form-control" [(ngModel)]="categoryDto.parentId">
+          <option value="null" [disabled]="true">select</option>
+          <option *ngFor="let category of categoryList" value="category.value">{{category.label}}</option>
+        </select>
+      </div>
+  
+      <div class="inputField">
+        <label for="first_name">SubCategory</label>
+        <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="categoryDto.name" required />
+      </div>
+  
+      <div class="inputField">
+        <label for="description">Description</label>
+        <textarea name="description" id="Message" rows="4" placeholder="Enter description"
+          [(ngModel)]="categoryDto.description"></textarea>
+      </div>
+  
+      <div class="inputField">
+        <label for="add_file">Add File/Image File format:<span class="file_Format">
+            jpg png jpeg or pdf</span></label>
+        <div class="file_div">
+          <span> <img [src]="imgURL" alt="productCategory" style="width: 100%;"></span>
+          <input type="file" title="add image" placeholder="Add file" (change)="addFile($event)"
+            accept="image/png, image/jpg image/jpeg file/pdf" />
+        </div>
+      </div>
+  
+      <button type="submit" (click)="save()">Submit</button>
+    </form>
+  </div>

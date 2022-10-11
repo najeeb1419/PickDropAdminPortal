@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SubCategoryActionComponent } from './sub-category-action/sub-category-action.component';
 
 @Component({
   selector: 'app-sub-category',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubCategoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(SubCategoryActionComponent, {
+      width: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 
 }

@@ -25,7 +25,6 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
 
   constructor(injector: Injector,
     public dialogRef: MatDialogRef<CategoryActionComponent>,
-    public fb: FormBuilder,
     private _categoryService: CategoryServiceProxy
   ) {
     super(injector)

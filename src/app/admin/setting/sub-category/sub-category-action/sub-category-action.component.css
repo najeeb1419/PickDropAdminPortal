@@ -1,0 +1,57 @@
+
+.inputField{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    color: rgb(41, 41, 41);
+    margin-bottom: 3px;
+}
+input,
+textarea{
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #adadad;
+    border-radius: 3px;
+}
+input[type=file]{
+    cursor: pointer;
+    height: 150px;
+    border: none;
+    opacity: 0;
+    width: 100%;
+}
+.file_div{
+    border: 1px solid #adadad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.file_div span{
+    position: absolute;
+    font-size: 20px;
+    color: red;
+    font-weight: 700;
+}
+input:focus-visible,
+textarea:focus-visible{
+    outline: none;
+}
+button{
+    margin-top: 13px;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 5px;
+    background-color: #626262;
+    color: white;
+    transition: all ease-in-out 0.4s;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+.file_Format{
+    color: #626262;
+}
