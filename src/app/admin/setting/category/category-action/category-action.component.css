@@ -18,7 +18,7 @@ input[type=file]{
     cursor: pointer;
     height: 150px;
     border: none;
-    opacity: 0.1;
+    opacity: 0;
     width: 100%;
 }
 .file_div{
