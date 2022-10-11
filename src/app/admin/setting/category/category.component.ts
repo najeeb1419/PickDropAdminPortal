@@ -56,7 +56,7 @@ export class CategoryComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  categoryData: CategoryDto[] =[];
+  categoryData: CategoryDto[] = [];
   constructor(public dialog: MatDialog,
 
   ) {
