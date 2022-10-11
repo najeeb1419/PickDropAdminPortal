@@ -1,14 +1,17 @@
-.accordion-item h2{
+.accordion-item h2 {
   margin: 0px;
 }
-.accordion-button::after{
-  background-image: url(D:\pickdrop\PickDropAdminPortol\src\assets\img\angle-arrow-down-white.png);
+
+.accordion-button::after {
+  background-image: url('/src//assets/img/angle-arrow-down-white.png');
 }
-.accordion-button{
+
+.accordion-button {
   background-color: #343a40;
   color: white;
 }
-.accordion-button:focus{
+
+.accordion-button:focus {
   box-shadow: none;
   border-color: none;
 }

@@ -1,28 +1,7 @@
 <div class="form_start">
   <form>
-    <div class="row">
-
-      <div class="col-md-6">
-        <label>Category</label>
-        <input type="radio" value="category" name="category" (click)="categoryOrSubCategory('Category')">
-      </div>
-
-      <div class="col-md-6">
-        <label>SubCategory</label>
-        <input type="radio" value="SubCategory" name="category" (click)="categoryOrSubCategory('SubCategory')">
-      </div>
-    </div>
-
-    <div class="inputField" *ngIf="type=='SubCategory'">
-      <label for="Category">Category</label>
-      <select class="form-control" [(ngModel)]="categoryDto.parentId">
-        <option value="null" [disabled]="true">select</option>
-        <option *ngFor="let category of categoryList" value="category.value">{{category.label}}</option>
-      </select>
-    </div>
-
     <div class="inputField">
-      <label for="first_name">{{type}}</label>
+      <label for="name">Category</label>
       <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="categoryDto.name" required />
     </div>
 

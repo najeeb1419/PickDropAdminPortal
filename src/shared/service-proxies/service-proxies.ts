@@ -2783,6 +2783,121 @@ export interface IAuthenticateResultModel {
     userId: number;
 }
 
+export class Category implements ICategory {
+    id: number;
+    creationTime: moment.Moment;
+    creatorUserId: number | undefined;
+    lastModificationTime: moment.Moment | undefined;
+    lastModifierUserId: number | undefined;
+    isDeleted: boolean;
+    deleterUserId: number | undefined;
+    deletionTime: moment.Moment | undefined;
+    tenantId: number;
+    name: string | undefined;
+    description: string | undefined;
+    imagePath: string | undefined;
+    thumbnailImagePath: string | undefined;
+    isActive: boolean;
+    subCategoryId: number | undefined;
+    parentId: number | undefined;
+    subcategories: Category[] | undefined;
+
+    constructor(data?: ICategory) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.creationTime = _data["creationTime"] ? moment(_data["creationTime"].toString()) : <any>undefined;
+            this.creatorUserId = _data["creatorUserId"];
+            this.lastModificationTime = _data["lastModificationTime"] ? moment(_data["lastModificationTime"].toString()) : <any>undefined;
+            this.lastModifierUserId = _data["lastModifierUserId"];
+            this.isDeleted = _data["isDeleted"];
+            this.deleterUserId = _data["deleterUserId"];
+            this.deletionTime = _data["deletionTime"] ? moment(_data["deletionTime"].toString()) : <any>undefined;
+            this.tenantId = _data["tenantId"];
+            this.name = _data["name"];
+            this.description = _data["description"];
+            this.imagePath = _data["imagePath"];
+            this.thumbnailImagePath = _data["thumbnailImagePath"];
+            this.isActive = _data["isActive"];
+            this.subCategoryId = _data["subCategoryId"];
+            this.parentId = _data["parentId"];
+            if (Array.isArray(_data["subcategories"])) {
+                this.subcategories = [] as any;
+                for (let item of _data["subcategories"])
+                    this.subcategories.push(Category.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): Category {
+        data = typeof data === 'object' ? data : {};
+        let result = new Category();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["creationTime"] = this.creationTime ? this.creationTime.toISOString() : <any>undefined;
+        data["creatorUserId"] = this.creatorUserId;
+        data["lastModificationTime"] = this.lastModificationTime ? this.lastModificationTime.toISOString() : <any>undefined;
+        data["lastModifierUserId"] = this.lastModifierUserId;
+        data["isDeleted"] = this.isDeleted;
+        data["deleterUserId"] = this.deleterUserId;
+        data["deletionTime"] = this.deletionTime ? this.deletionTime.toISOString() : <any>undefined;
+        data["tenantId"] = this.tenantId;
+        data["name"] = this.name;
+        data["description"] = this.description;
+        data["imagePath"] = this.imagePath;
+        data["thumbnailImagePath"] = this.thumbnailImagePath;
+        data["isActive"] = this.isActive;
+        data["subCategoryId"] = this.subCategoryId;
+        data["parentId"] = this.parentId;
+        if (Array.isArray(this.subcategories)) {
+            data["subcategories"] = [];
+            for (let item of this.subcategories)
+                data["subcategories"].push(item.toJSON());
+        }
+        return data;
+    }
+
+    clone(): Category {
+        const json = this.toJSON();
+        let result = new Category();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ICategory {
+    id: number;
+    creationTime: moment.Moment;
+    creatorUserId: number | undefined;
+    lastModificationTime: moment.Moment | undefined;
+    lastModifierUserId: number | undefined;
+    isDeleted: boolean;
+    deleterUserId: number | undefined;
+    deletionTime: moment.Moment | undefined;
+    tenantId: number;
+    name: string | undefined;
+    description: string | undefined;
+    imagePath: string | undefined;
+    thumbnailImagePath: string | undefined;
+    isActive: boolean;
+    subCategoryId: number | undefined;
+    parentId: number | undefined;
+    subcategories: Category[] | undefined;
+}
+
 export class CategoryDto implements ICategoryDto {
     id: number;
     tenantId: number;
@@ -2791,6 +2906,9 @@ export class CategoryDto implements ICategoryDto {
     imagePath: string | undefined;
     thumbnailImagePath: string | undefined;
     isActive: boolean;
+    subCategoryId: number | undefined;
+    parentId: number | undefined;
+    subcategories: Category[] | undefined;
     isImageCahnged: boolean;
     oldImagePath: string | undefined;
     isThumbnailImageCahnged: boolean;
@@ -2814,6 +2932,13 @@ export class CategoryDto implements ICategoryDto {
             this.imagePath = _data["imagePath"];
             this.thumbnailImagePath = _data["thumbnailImagePath"];
             this.isActive = _data["isActive"];
+            this.subCategoryId = _data["subCategoryId"];
+            this.parentId = _data["parentId"];
+            if (Array.isArray(_data["subcategories"])) {
+                this.subcategories = [] as any;
+                for (let item of _data["subcategories"])
+                    this.subcategories.push(Category.fromJS(item));
+            }
             this.isImageCahnged = _data["isImageCahnged"];
             this.oldImagePath = _data["oldImagePath"];
             this.isThumbnailImageCahnged = _data["isThumbnailImageCahnged"];
@@ -2837,6 +2962,13 @@ export class CategoryDto implements ICategoryDto {
         data["imagePath"] = this.imagePath;
         data["thumbnailImagePath"] = this.thumbnailImagePath;
         data["isActive"] = this.isActive;
+        data["subCategoryId"] = this.subCategoryId;
+        data["parentId"] = this.parentId;
+        if (Array.isArray(this.subcategories)) {
+            data["subcategories"] = [];
+            for (let item of this.subcategories)
+                data["subcategories"].push(item.toJSON());
+        }
         data["isImageCahnged"] = this.isImageCahnged;
         data["oldImagePath"] = this.oldImagePath;
         data["isThumbnailImageCahnged"] = this.isThumbnailImageCahnged;
@@ -2860,6 +2992,9 @@ export interface ICategoryDto {
     imagePath: string | undefined;
     thumbnailImagePath: string | undefined;
     isActive: boolean;
+    subCategoryId: number | undefined;
+    parentId: number | undefined;
+    subcategories: Category[] | undefined;
     isImageCahnged: boolean;
     oldImagePath: string | undefined;
     isThumbnailImageCahnged: boolean;
