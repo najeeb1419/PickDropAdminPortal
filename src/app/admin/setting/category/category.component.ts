@@ -1,37 +1,91 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { CategoryDto } from '@shared/service-proxies/service-proxies';
-import { SubCategoryActionComponent } from '../sub-category/sub-category-action/sub-category-action.component';
+import { appModuleAnimation } from '@shared/animations/routerTransition';
+import { AppComponentBase } from '@shared/app-component-base';
+import { CategoryDto, CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CategoryActionComponent } from './category-action/category-action.component';
 
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  animations: [appModuleAnimation()]
 })
-export class CategoryComponent {
+export class CategoryComponent extends AppComponentBase implements OnInit {
 
-  categoryData: CategoryDto[] = [];
-  constructor(public dialog: MatDialog,
+  categoryList: CategoryDto[] = [];
+  constructor(injector: Injector,
+    private _categoryService: CategoryServiceProxy,
+    private _modalService: BsModalService,
 
   ) {
+    super(injector)
+  }
 
+  ngOnInit(): void {
+    this.GetCategories();
+  }
+
+  
+
+  GetCategories() {
+    this._categoryService.getHistory(
+      undefined,
+      undefined,
+      undefined,
+      0,
+      200
+    ).subscribe(result => {
+      this.categoryList = result.items;
+    });
+  }
+
+ 
+
+  protected delete(rowData: CategoryDto): void {
+    abp.message.confirm(
+      this.l('DeleteWarningMessage', rowData.name),
+      undefined,
+      (result: boolean) => {
+        if (result) {
+          this._categoryService.deleteCategory(rowData).subscribe(() => {
+            abp.notify.success(this.l('Successfully Deleted'));
+            this.GetCategories()
+          });
+        }
+      }
+    );
   }
 
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CategoryActionComponent, {
-      width: '50%',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-    });
+  addEditcategory(id?: number): void {
+    this.showCreateOrEditCategoryDialog(id);
   }
+
+  private showCreateOrEditCategoryDialog(id?: number): void {
+    let createOrEditCategoryDialog: BsModalRef;
+    if (!id) {
+      createOrEditCategoryDialog = this._modalService.show(
+        CategoryActionComponent,
+        {
+          class: 'modal-lg',
+        }
+      );
+    } else {
+      createOrEditCategoryDialog = this._modalService.show(
+        CategoryActionComponent,
+        {
+          class: 'modal-lg',
+          initialState: {
+            id: id,
+          },
+        }
+      );
+    }
+  }
+
 
 
 }

@@ -1,6 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
 import {  CategoryDto, CategoryServiceProxy, FileParameter, SelectItemDto } from '@shared/service-proxies/service-proxies';
 
@@ -12,33 +11,32 @@ export interface DialogData {
 @Component({
   selector: 'app-category-action',
   templateUrl: './category-action.component.html',
-  styleUrls: ['./category-action.component.css']
+  styleUrls: ['./category-action.component.css'],
+  animations: [appModuleAnimation()]
 })
 export class CategoryActionComponent extends AppComponentBase implements OnInit {
   categoryDto: CategoryDto = new CategoryDto();
   categoryList: SelectItemDto[] = [];
-
+  id:number;
   file: File;
   imgURL: string
   type: string='Category';
 
 
   constructor(injector: Injector,
-    public dialogRef: MatDialogRef<CategoryActionComponent>,
     private _categoryService: CategoryServiceProxy
   ) {
-    super(injector)
+    super(injector);
+    
   }
 
 
   ngOnInit(): void {
+    if(this.id>0)
+    {
+     this.getCatergory();
+    }
     this.getCategorySelectList();
-  }
-
-
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 
   save() {
@@ -94,6 +92,14 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
 
   categoryOrSubCategory(value: string) {
     this.type = value;
+  }
+
+
+  getCatergory()
+  {
+    this._categoryService.getCategory(this.id).subscribe(res=>{
+      this.categoryDto=res;
+    })
   }
 
 
