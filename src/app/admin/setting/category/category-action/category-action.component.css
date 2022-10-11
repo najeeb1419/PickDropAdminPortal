@@ -22,12 +22,17 @@ input[type=file]{
     width: 100%;
 }
 .file_div{
+    height: 300px;
     border: 1px solid #adadad;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
+}
+.img_preview{
+    position: absolute;
+    height: 300px;
 }
 .file_div span{
     position: absolute;

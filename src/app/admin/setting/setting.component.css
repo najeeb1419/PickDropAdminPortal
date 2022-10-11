@@ -3,7 +3,7 @@
 }
 
 .accordion-button::after {
-  background-image: url('/src//assets/img/angle-arrow-down-white.png');
+  background-image: url("/src/assets/img/angle-arrow-down-white.png");
 }
 
 .accordion-button {

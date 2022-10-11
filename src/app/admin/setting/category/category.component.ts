@@ -25,7 +25,7 @@ export class CategoryComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CategoryActionComponent, {
-      width: '60%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
