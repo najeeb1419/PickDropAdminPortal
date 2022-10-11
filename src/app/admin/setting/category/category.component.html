@@ -1,5 +1,41 @@
 <div class="row">
-    <div class="offset-8 col-md-4">
-        <button mat-button (click)="openDialog()">Add Category</button>
+    <div class="offset-10 col-md-2">
+        <button  class="btn btn-primary" (click)="addEditcategory()">Add Category</button>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <th>
+                   Name
+                </th>
+                 <th>
+                    Image
+                 </th>
+                 <th>
+                    Active
+                 </th>
+                 <th>
+                    Action
+                 </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rowData of categoryList">
+                     <td>{{rowData.name}}</td>
+                     <td><img src="{{rowData.imagePath}}" /></td>
+                     <td><div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" disabled
+                            [checked]="rowData.isActive" />
+                        <label class="custom-control-label"></label>
+                    </div></td>
+                    <td>
+                        <input type="button" class="btn btn-sm btn-primary" value="Edit"  (click)="addEditcategory(rowData.id)">
+                        <input type="button" class="btn btn-sm btn-danger" value="Delete"  (click)="delete(rowData)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
