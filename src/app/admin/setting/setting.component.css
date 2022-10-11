@@ -1,12 +1,14 @@
-.example-action-buttons {
-    padding-bottom: 20px;
-  }
-  
-  .example-headers-align .mat-expansion-panel-header-description {
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .example-headers-align .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+.accordion-item h2{
+  margin: 0px;
+}
+.accordion-button::after{
+  background-image: url(D:\pickdrop\PickDropAdminPortol\src\assets\img\angle-arrow-down-white.png);
+}
+.accordion-button{
+  background-color: #343a40;
+  color: white;
+}
+.accordion-button:focus{
+  box-shadow: none;
+  border-color: none;
+}
