@@ -27,7 +27,7 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
     private _categoryService: CategoryServiceProxy
   ) {
     super(injector);
-    
+    this.imgURL ="assets/img/drag-drop-file-upload.png";
   }
 
 

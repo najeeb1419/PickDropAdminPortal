@@ -1,9 +1,12 @@
 .accordion-item h2 {
   margin: 0px;
 }
-
+.accordion-item{
+  margin-bottom: -1px;
+}
 .accordion-button::after {
-  background-image: url("/src/assets/img/angle-arrow-down-white.png");
+  
+  background-image:url("assets/img/angle-arrow-down-white.png");
 }
 
 .accordion-button {

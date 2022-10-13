@@ -1,26 +1,28 @@
 <div class="form_start">
+  <div class="title text-center">
+    <h2>Create Category</h2>
+  </div>
   <form>
     <div class="inputField">
       <label for="name">Category</label>
-      <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="categoryDto.name" required />
+      <input type="text" id="name" name="name" placeholder="Enter category" [(ngModel)]="categoryDto.name" required />
     </div>
-
     <div class="inputField">
       <label for="description">Description</label>
       <textarea name="description" id="Message" rows="4" placeholder="Enter description"
         [(ngModel)]="categoryDto.description"></textarea>
     </div>
-
     <div class="inputField">
       <label for="add_file">Add File/Image File format:<span class="file_Format">
           jpg png jpeg or pdf</span></label>
       <div class="file_div">
-        <img [src]="imgURL" alt="productCategory" style="width: 100%;" class="img_preview">
+        <img [src]="imgURL" alt="Choose image/file Image size 400 x 300" class="img_preview">
         <input type="file" title="add image" placeholder="Add file" (change)="addFile($event)"
           accept="image/png, image/jpg image/jpeg file/pdf" />
       </div>
     </div>
-
-    <button type="submit" (click)="save()">Submit</button>
+    <div class="form_btn">
+      <button type="submit" (click)="save()">Submit</button>
+    </div>
   </form>
 </div>

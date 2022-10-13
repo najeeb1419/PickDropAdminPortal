@@ -1,0 +1,35 @@
+.vehicle_type_form_start input{
+    width: 100%;
+    border: 1px solid #e2e2e2;
+    padding: 10px;
+}
+.vehicle_type_form_start input:focus-visible{
+    outline: none;
+}
+.vehicle_type_form_start .vehicle span{
+    color: red;
+    font-size: 20px;
+}
+.vehicle_type_form_start input[type=checkbox]{
+    width: auto;
+}
+.vehicle_type_form_start .vehicle{
+    font-weight: 900;
+}
+.vehicle_type_form_start .vehilce_action_form_title h3{
+    font-size: 22px;
+    font-weight: 900;
+}
+.vehicle_type_form_start .vehilce_action_form_title .line-break{
+    height: 1px;
+    width: 120px;
+    background-color: #4b4b4b;
+}
+.vehicle_type_form_start .select_dropdown select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+}
+.vehicle_type_form_start .select_dropdown select:focus-visible{
+    outline: none;
+}
