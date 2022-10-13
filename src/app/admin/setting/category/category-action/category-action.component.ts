@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
-import { Category, CategoryDto, CategoryServiceProxy, FileParameter, SelectItemDto } from '@shared/service-proxies/service-proxies';
+import {  CategoryDto, CategoryServiceProxy, FileParameter, SelectItemDto } from '@shared/service-proxies/service-proxies';
 
 export interface DialogData {
   animal: string;
@@ -27,7 +27,7 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
     private _categoryService: CategoryServiceProxy
   ) {
     super(injector);
-    
+    this.imgURL ="assets/img/drag-drop-file-upload.png";
   }
 
 
