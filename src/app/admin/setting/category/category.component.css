@@ -6,8 +6,53 @@ table {
     font-size: 14px;
     width: 100%;
   }
-  
-  td, th {
-    width: 25%;
+  .form_start{
+    padding: 20px;
   }
- 
+  .table_image_preview{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .table_image_preview_file{
+    opacity: 0;
+  }
+  .btn.btn-primary{
+    margin-right: 13px;
+    padding: .25rem 1rem;
+  }
+  .category_btn button{
+    background-color: #26a33a;
+    border-color: #26A33A;
+  }
+  .btn.btn-primary:active,
+  .btn.btn-primary:focus-visible{
+    box-shadow: none;
+    background-color: #26a33a;
+    border-color: #26a33a;
+  }
+  .table_container{
+    border: 3px solid #26a33a;
+    border-radius: 5px;
+  }
+  .table_filter{
+    display: flex;
+    justify-content: space-between;
+    background: #26a33a;
+    color: white;
+    padding: 10px;
+  }
+  .table_container .table_filter .table_title{
+    font-size: 19px;
+  }
+  .table_container .table_filter_btn button{
+    border: none;
+    padding: 3px 10px;
+  }
+  .table_container th input{
+    border: 1px solid #e2e2e2;
+    width: 100%;
+  }
+  .table_container th input:focus-visible{
+    outline: none;
+  }
