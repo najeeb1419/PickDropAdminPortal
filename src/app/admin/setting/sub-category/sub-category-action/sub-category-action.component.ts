@@ -17,7 +17,7 @@ export class SubCategoryActionComponent extends AppComponentBase implements OnIn
   imgURL: string
 
   constructor(injector: Injector,
-    public dialogRef: MatDialogRef<SubCategoryActionComponent>,
+    
 
     private _categoryService: CategoryServiceProxy
   ) { 
@@ -27,10 +27,7 @@ export class SubCategoryActionComponent extends AppComponentBase implements OnIn
   ngOnInit(): void {
     this.getCategorySelectList();
   }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+ 
 
   save() {
     this._categoryService.addCategory(this.categoryDto).subscribe(res => {
