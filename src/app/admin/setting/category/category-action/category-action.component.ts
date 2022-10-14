@@ -1,7 +1,8 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
-import {  CategoryDto, CategoryServiceProxy, FileParameter, SelectItemDto } from '@shared/service-proxies/service-proxies';
+import { CategoryDto, CategoryServiceProxy, FileParameter, SelectItemDto } from '@shared/service-proxies/service-proxies';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 export interface DialogData {
   animal: string;
@@ -17,34 +18,75 @@ export interface DialogData {
 export class CategoryActionComponent extends AppComponentBase implements OnInit {
   categoryDto: CategoryDto = new CategoryDto();
   categoryList: SelectItemDto[] = [];
-  id:number;
+  id: number;
   file: File;
   imgURL: string
-  type: string='Category';
+  type: string = 'Category';
+  saving: boolean = true;
+
 
 
   constructor(injector: Injector,
-    private _categoryService: CategoryServiceProxy
+    private _categoryService: CategoryServiceProxy,
+    public bsModalRef: BsModalRef,
+    // private _eventService: EventServiceService,
   ) {
     super(injector);
-    this.imgURL ="assets/img/drag-drop-file-upload.png";
+    this.imgURL = "assets/img/drag-drop-file-upload.png";
   }
 
 
   ngOnInit(): void {
-    if(this.id>0)
-    {
-     this.getCatergory();
+    if (this.id > 0) {
+      this.getCatergory();
     }
     this.getCategorySelectList();
   }
 
-  save() {
-    this._categoryService.addCategory(this.categoryDto).subscribe(res => {
-      this.notify.success("Successfully saved.")
-    })
+ 
+
+  async save() {
+    this.saving = true;
+
+    // save file
+    await this.SaveFile();
+
+    if (this.id) {
+      this._categoryService.updateProuductSubCategory(this.categoryDto).subscribe(
+        () => {
+          this.notify.info(this.l('Updated Successfully'));
+          this.bsModalRef.hide();
+          // this.onSave.emit();
+        },
+        () => {
+          this.saving = false;
+        });
+    } else {
+      this._categoryService.addCategory(this.categoryDto).subscribe(
+        () => {
+          this.notify.info(this.l('Saved Successfully'));
+          // this._eventService.emitChildEvent(true)
+          this.bsModalRef.hide();
+        },
+        () => {
+          this.saving = false;
+        });
+    }
   }
 
+  async SaveFile() {
+    if (this.file != null) {
+      let fileParameter: FileParameter = { data: this.file, fileName: this.file.name };
+
+      let fullPath = (await this.uploadFile(fileParameter));
+
+      if (fullPath != null) {
+        this.categoryDto.isImageCahnged = true
+        this.categoryDto.oldImagePath = this.categoryDto.imagePath
+      }
+      this.categoryDto.imagePath = fullPath;
+    }
+  }
 
 
   addFile(event: any) {
@@ -95,10 +137,9 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
   }
 
 
-  getCatergory()
-  {
-    this._categoryService.getCategory(this.id).subscribe(res=>{
-      this.categoryDto=res;
+  getCatergory() {
+    this._categoryService.getCategory(this.id).subscribe(res => {
+      this.categoryDto = res;
     })
   }
 

@@ -163,7 +163,8 @@ export class AppInitializer {
         AppConsts.appBaseUrl = response.appBaseUrl;
         AppConsts.remoteServiceBaseUrl = response.remoteServiceBaseUrl;
         AppConsts.localeMappings = response.localeMappings;
-
+        AppConsts.attachmentUrl = response.attachmentUrl;
+        AppConsts.defaultImage = response.defaultImage;
         callback();
       });
   }
