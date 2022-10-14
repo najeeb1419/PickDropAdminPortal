@@ -1,7 +1,23 @@
+:root{
+    --theme-font--:'Quicksand', sans-serif;
+}
+*{
+    font-family: var(--theme-font--);
+}
+.form_main_container{
+    padding: 50px 30px;
+    background-color: #f2f7fb;
+}
+.vehicle_type_form_start{
+    background-color: white;
+    box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+    padding: 20px;
+}
 .vehicle_type_form_start input{
     width: 100%;
     border: 1px solid #e2e2e2;
     padding: 10px;
+    
 }
 .vehicle_type_form_start input:focus-visible{
     outline: none;
@@ -14,11 +30,14 @@
     width: auto;
 }
 .vehicle_type_form_start .vehicle{
-    font-weight: 900;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
 }
 .vehicle_type_form_start .vehilce_action_form_title h3{
-    font-size: 22px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--theme-font--);
+    font-family: 'Quicksand', sans-serif;
 }
 .vehicle_type_form_start .vehilce_action_form_title .line-break{
     height: 1px;
@@ -32,4 +51,39 @@
 }
 .vehicle_type_form_start .select_dropdown select:focus-visible{
     outline: none;
+}
+.form_main_container .icon i{
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 22px;
+    color: #fff;
+    -webkit-box-shadow: 0 2px 12px -3px rgb(0 0 0 / 50%);
+    box-shadow: 0 2px 12px -3px rgb(0 0 0 / 50%);
+    margin-right: 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #2ed8b6;
+}
+.form_main_container .form_container_title_content h3{
+    font-family:'Quicksand', sans-serif ;
+    font-size: 18px;
+    font-weight: 500;
+}
+.form_main_container .form_container_title_content span{
+    font-family:'Quicksand', sans-serif ;
+    font-size: 14px;
+    font-weight: 300;
+}
+.form_main_container .vehicle_form_input span{
+    font-size: 18px;
 }
