@@ -44,7 +44,7 @@
                         </td>
                         <td class="text-center">{{rowData.name}}</td>
                          <td class="text-center">
-                             <img src="{{rowData.imagePath}}" class="table_image_preview"/>
+                             <img [src]="attachmentUrl+rowData.imagePath" class="table_image_preview"/>
                             <input type="file" class="table_image_preview_file">
                         </td>
                          <td class="text-center"><div class="custom-control custom-checkbox">

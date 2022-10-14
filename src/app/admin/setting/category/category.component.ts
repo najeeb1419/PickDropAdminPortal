@@ -2,6 +2,7 @@ import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
+import { AppConsts } from '@shared/AppConsts';
 import { CategoryDto, CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CategoryActionComponent } from './category-action/category-action.component';
@@ -16,6 +17,7 @@ import { CategoryActionComponent } from './category-action/category-action.compo
 export class CategoryComponent extends AppComponentBase implements OnInit {
 
   categoryList: CategoryDto[] = [];
+  attachmentUrl = AppConsts.attachmentUrl;
   constructor(injector: Injector,
     private _categoryService: CategoryServiceProxy,
     private _modalService: BsModalService,

@@ -1,6 +1,8 @@
 {
   "remoteServiceBaseUrl": "https://localhost:44311",
   "appBaseUrl": "http://localhost:4200",
+  "attachmentUrl":"https://localhost:44311/Attachments/",
+  "defaultImage": "http://img1.wikia.nocookie.net/__cb20130901213905/battlebears/images/9/98/Team-icon-placeholder.png",
   "localeMappings": [
     {
       "from": "pt-BR",
