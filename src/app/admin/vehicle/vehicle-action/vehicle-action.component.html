@@ -1,4 +1,3 @@
-
 <div class="form_main_container">
     <div class="form_container_title_icon d-flex align-items-center mb-5">
         <span class="icon">
@@ -18,74 +17,78 @@
                 </div>
             </div>
             <div class="col-4">
-                <div class="vehicle mt-4">
-                    Vehicle Type Name:<span>*</span> 
+                <div class="vehicle mt-4 required">
+                    Vehicle Category:
                 </div>
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="text" name="vehicle-type" id="vehicle-type" placeholder="Unique vehicle type name">
+                    <select (change)="onSelectCategory($event.target.value)" class="form-control">
+                        <option [value]="undefined" selected disabled="true">Select Category</option>
+                        <option value="category.value" *ngFor="let category of categoryList" [value]="category.value">
+                            {{category.label}}</option>
+                    </select>
                 </div>
             </div>
             <div class="col-4">
-                <div class="vehicle mt-4">
-                    Vehicle Type Image:<span>*</span> 
+                <div class="vehicle mt-4 required">
+                    Vehicle SubCategory:
                 </div>
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="file" name="vehicle-file" id="vehicle-file">
-                    <p class="pt-2">[Note: Upload only png icon dimension between 50*50 to 100*100 & max size 100kb.]</p>
+                    <select [(ngModel)]="vehivleDetailDto.categoryId" name="categoryId" id="categoryId"
+                        class="form-control">
+                        <option [value]="undefined" selected disabled="true">Select SubCategory</option>
+                        <option *ngFor="let subCategory of subCategoryList" [value]="subCategory.value">
+                            {{subCategory.label}}</option>
+                    </select>
+                </div>
+            </div>
+           
+            <div class="col-4">
+                <div class="vehicle mt-4 required">
+                    Cost For Km:
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="vehicle_form_input mt-4">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.costForKm" placeholder="0"
+                        name="vehicleCcostByKm" id="vehicle-cost-by-km">
                 </div>
             </div>
             <div class="col-4">
-                <div class="vehicle mt-4">
-                    Cost For Km:<span>*</span> 
+                <div class="vehicle mt-4 required">
+                    Time Fare(per min):
                 </div>
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="number" placeholder="0" name="vehicle-cost-by-km" id="vehicle-cost-by-km">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.timeFare" name="timeFare" id="timeFare"
+                        placeholder="Time Fare per min">
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="vehicle mt-4 required">
+                    Base Fare:
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="vehicle_form_input mt-4">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.baseFare" name="baseFare" id="baseFare"
+                        placeholder="Base Fare">
                 </div>
             </div>
             <div class="col-4">
-                <div class="vehicle mt-4">
-                    Time Fare(per min):<span>*</span> 
+                <div class="vehicle mt-4 required">
+                    Min Fare Amount:
                 </div>
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="number" name="Time-Fare-per-min" id="Time-Fare-per-min" placeholder="Time Fare per min">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="vehicle mt-4">
-                    Vehicle Type Name:<span>*</span> 
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="vehicle_form_input mt-4">
-                    <input type="text" name="vehicle-type" id="vehicle-type" placeholder="Unique vehicle type name">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="vehicle mt-4">
-                    Base Fare:<span>*</span> 
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="vehicle_form_input mt-4">
-                    <input type="number" name="base-fare" id="base-fare" placeholder="Base Fare">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="vehicle mt-4">
-                    Min Fare Amount:<span>*</span> 
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="vehicle_form_input mt-4">
-                    <input type="number" name="Min-Fare-Amount" id="Min-Fare-Amount" placeholder="Min Fare Amount">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.minFareAmount" name="minFareAmount"
+                        id="minFareAmount" placeholder="Min Fare Amount">
                 </div>
             </div>
             <div class="col-4">
@@ -95,7 +98,8 @@
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="number" name="rental-cost-for-km" id="rental-cost-for-km" placeholder="Rental Cost For KM">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.rentalCostForKM" name="rentalCostForKM"
+                        id="rentalCostForKM" placeholder="Rental Cost For KM">
                 </div>
             </div>
             <div class="col-4">
@@ -105,7 +109,8 @@
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="number" name="rental-amount-for-hour" id="rental-amount-for-hour" placeholder="Rental Amount For 1 Hour :">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.rentalAmountFor1Hour" name="rentalAmountFor1Hour"
+                        id="rentalAmountFor1Hour" placeholder="Rental Amount For 1 Hour :">
                 </div>
             </div>
             <div class="col-4">
@@ -115,7 +120,9 @@
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="number" name="rental-km-limit-for-hour" id="rental-km-limit-for-hour" placeholder="Rental Km Limit For 1 Hour :">
+                    <input type="number" [(ngModel)]="vehivleDetailDto.rentalKmLimitFor1Hour"
+                        name="rentalKmLimitFor1Hour" id="rentalKmLimitFor1Hour"
+                        placeholder="Rental Km Limit For 1 Hour :">
                 </div>
             </div>
             <div class="col-4">
@@ -125,12 +132,13 @@
             </div>
             <div class="col-8">
                 <div class="vehicle_form_input mt-4">
-                    <input type="checkbox" name="surcharge-time-status" id="surcharge-time-status">
+                    <input type="checkbox" [(ngModel)]="vehivleDetailDto.surchargeTimeStatus" name="surchargeTimeStatus"
+                        id="surchargeTimeStatus">
                 </div>
             </div>
             <div class="col-4">
-                <div class="vehicle mt-4">
-                    Surcharge Time: <span>*</span>
+                <div class="vehicle mt-4 required">
+                    Surcharge Time:
                 </div>
             </div>
             <div class="col-8">
@@ -271,6 +279,23 @@
                         </select>
                     </div>
                 </div>
+            </div>
+
+        </div>
+        
+    </div>
+    <br>
+    <div class="row mb-4">
+        <div class="col-md-12" style="
+       display: flex;
+       justify-content: space-between;">
+            <div class="col-md-6">
+                <button class="btn btn-outline-dark" (click)="bsModalRef.hide()">Cancel</button>
+            </div>
+            <div class="col-md-6" style=" 
+            display: flex;
+            justify-content: end;">
+                <button class="btn btn-outline-primary" (click)="save()">Save</button>
             </div>
         </div>
     </div>

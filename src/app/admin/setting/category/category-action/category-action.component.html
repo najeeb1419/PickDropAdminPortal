@@ -12,9 +12,14 @@
       <textarea name="description" id="Message" rows="4" placeholder="Enter description"
         [(ngModel)]="categoryDto.description"></textarea>
     </div>
+    <div >
+      <label for="isActive" >IsActive</label>
+      <input type="checkbox" [(ngModel)]="categoryDto.isActive" class="ml-5" name="isActive"
+        id="isActive" />
+    </div>
     <div class="inputField">
-      <label for="add_file">Add File/Image File format:<span class="file_Format">
-          jpg png jpeg or pdf</span></label>
+      <!-- <label for="add_file">Add File/Image File format:<span class="file_Format">
+          jpg png jpeg or pdf</span></label> -->
       <div class="file_div">
         <img [src]="imgURL" alt="Choose image/file Image size 400 x 300" class="img_preview">
         <input type="file" title="add image" placeholder="Add file" (change)="addFile($event)"

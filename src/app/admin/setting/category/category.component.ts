@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
 import { AppConsts } from '@shared/AppConsts';
+import { EventService } from '@shared/DataServices/event.service';
 import { CategoryDto, CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CategoryActionComponent } from './category-action/category-action.component';
@@ -21,9 +22,15 @@ export class CategoryComponent extends AppComponentBase implements OnInit {
   constructor(injector: Injector,
     private _categoryService: CategoryServiceProxy,
     private _modalService: BsModalService,
-
+    private _eventService: EventService,
   ) {
     super(injector)
+    this._eventService.childEventListner().subscribe(res => {
+      if (res) {
+        this.GetCategories();
+        this._eventService.emitChildEvent(false);
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -65,6 +72,7 @@ export class CategoryComponent extends AppComponentBase implements OnInit {
   addEditcategory(id?: number): void {
     this.showCreateOrEditCategoryDialog(id);
   }
+  
 
   private showCreateOrEditCategoryDialog(id?: number): void {
     let createOrEditCategoryDialog: BsModalRef;

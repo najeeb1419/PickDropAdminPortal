@@ -71,6 +71,12 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                         'fas fa-cog',
                         'Pages.Users'
                     ),
+                    new MenuItem(
+                        this.l('Vehicle'),
+                        '/app/admin/vehicle',
+                        'fas fa-cog',
+                        'Pages.Users'
+                    ),
                    
                 // new MenuItem('ASP.NET Zero', '', 'fas fa-dot-circle', '', [
                 //     new MenuItem(

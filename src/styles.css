@@ -1,6 +1,157 @@
-.table input{
-background-color: red;
+:root{
+    --theme-font--:'Quicksand', sans-serif;
 }
-.form_start{
+*{
+    font-family: var(--theme-font--);
+}
+.form_main_container{
+    padding: 50px 30px;
+    background-color: #f2f7fb;
+}
+.vehicle_type_form_start{
+    background-color: white;
+    box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
     padding: 20px;
 }
+.vehicle_type_form_start input{
+    width: 100%;
+    border: 1px solid #e2e2e2;
+    padding: 10px;
+    
+}
+.vehicle_type_form_start input:focus-visible{
+    outline: none;
+}
+.vehicle_type_form_start .vehicle span{
+    color: red;
+    font-size: 20px;
+}
+.vehicle_type_form_start input[type=checkbox]{
+    width: auto;
+}
+.vehicle_type_form_start .vehicle{
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+.vehicle_type_form_start .vehilce_action_form_title h3{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--theme-font--);
+    font-family: 'Quicksand', sans-serif;
+}
+.vehicle_type_form_start .vehilce_action_form_title .line-break{
+    height: 1px;
+    width: 120px;
+    background-color: #4b4b4b;
+}
+.vehicle_type_form_start .select_dropdown select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+}
+.vehicle_type_form_start .select_dropdown select:focus-visible{
+    outline: none;
+}
+.form_main_container .icon i{
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 22px;
+    color: #fff;
+    -webkit-box-shadow: 0 2px 12px -3px rgb(0 0 0 / 50%);
+    box-shadow: 0 2px 12px -3px rgb(0 0 0 / 50%);
+    margin-right: 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #2ed8b6;
+}
+.form_main_container .form_container_title_content h3{
+    font-family:'Quicksand', sans-serif ;
+    font-size: 18px;
+    font-weight: 500;
+}
+.form_main_container .form_container_title_content span{
+    font-family:'Quicksand', sans-serif ;
+    font-size: 14px;
+    font-weight: 300;
+}
+.form_main_container .vehicle_form_input span{
+    font-size: 18px;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+  }
+
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .form_start{
+    padding: 20px;
+  }
+  .table_image_preview{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .table_image_preview_file{
+    opacity: 0;
+  }
+  .btn.btn-primary{
+    margin-right: 13px;
+    padding: .25rem 1rem;
+  }
+  .category_btn button{
+    background-color: #26a33a;
+    border-color: #26A33A;
+  }
+  .btn.btn-primary:active,
+  .btn.btn-primary:focus-visible{
+    box-shadow: none;
+    background-color: #26a33a;
+    border-color: #26a33a;
+  }
+  .table_container{
+    border: 3px solid #26a33a;
+    border-radius: 5px;
+  }
+  .table_filter{
+    display: flex;
+    justify-content: space-between;
+    background: #26a33a;
+    color: white;
+    padding: 10px;
+  }
+  .table_container .table_filter .table_title{
+    font-size: 19px;
+  }
+  .table_container .table_filter_btn button{
+    border: none;
+    padding: 3px 10px;
+  }
+  .table_container th input{
+    border: 1px solid #e2e2e2;
+    width: 100%;
+  }
+  .table_container th input:focus-visible{
+    outline: none;
+  }
+
+
+  
