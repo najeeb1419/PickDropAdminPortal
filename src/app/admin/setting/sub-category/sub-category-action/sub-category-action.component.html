@@ -2,10 +2,10 @@
     <form>
   
       <div class="inputField">
-        <label for="Category">Category</label>
-        <select class="form-control" [(ngModel)]="categoryDto.parentId">
-          <option value="null" [disabled]="true">select</option>
-          <option *ngFor="let category of categoryList" value="category.value">{{category.label}}</option>
+        <label for="parentId">Category</label>
+        <select class="form-control" [(ngModel)]="categoryDto.parentId" name="parentId" name="parentId">
+          <option value="undefined" [disabled]="true">select</option>
+          <option *ngFor="let category of categoryList" [value]="category.value">{{category.label}}</option>
         </select>
       </div>
   
@@ -33,3 +33,4 @@
       <button type="submit" (click)="save()">Submit</button>
     </form>
   </div>
+  

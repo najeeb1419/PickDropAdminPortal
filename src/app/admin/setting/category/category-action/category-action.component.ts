@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
+import { EventService } from '@shared/DataServices/event.service';
 import { CategoryDto, CategoryServiceProxy, FileParameter, SelectItemDto } from '@shared/service-proxies/service-proxies';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -29,7 +30,7 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
   constructor(injector: Injector,
     private _categoryService: CategoryServiceProxy,
     public bsModalRef: BsModalRef,
-    // private _eventService: EventServiceService,
+    private _eventService: EventService,
   ) {
     super(injector);
     this.imgURL = "assets/img/drag-drop-file-upload.png";
@@ -56,7 +57,7 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
         () => {
           this.notify.info(this.l('Updated Successfully'));
           this.bsModalRef.hide();
-          // this.onSave.emit();
+          this._eventService.emitChildEvent(true)
         },
         () => {
           this.saving = false;
@@ -65,7 +66,7 @@ export class CategoryActionComponent extends AppComponentBase implements OnInit 
       this._categoryService.addCategory(this.categoryDto).subscribe(
         () => {
           this.notify.info(this.l('Saved Successfully'));
-          // this._eventService.emitChildEvent(true)
+          this._eventService.emitChildEvent(true)
           this.bsModalRef.hide();
         },
         () => {

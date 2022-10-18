@@ -26,6 +26,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import {EventService} from './DataServices/event.service'
+
 @NgModule({
     imports: [
         CommonModule,
@@ -82,7 +84,8 @@ export class SharedModule {
                 AppUrlService,
                 AppAuthService,
                 AppRouteGuard,
-                LayoutStoreService
+                LayoutStoreService,
+                EventService
             ]
         };
     }
