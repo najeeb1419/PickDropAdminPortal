@@ -24,7 +24,7 @@
             <tbody>
                 <tr *ngFor="let rowData of subCategoryList">
                      <td>{{rowData.name}}</td>
-                     <td><img src="{{rowData.imagePath}}" /></td>
+                     <td><img style="width: 90px" src="{{attachmentUrl+rowData.imagePath}}" /></td>
                      <td><div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" disabled
                             [checked]="rowData.isActive" />

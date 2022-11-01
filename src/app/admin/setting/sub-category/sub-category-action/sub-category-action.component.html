@@ -1,26 +1,26 @@
-<div class="form_start">
+<div class="row">
     <form>
   
-      <div class="inputField">
+      <div class="col-md-12">
         <label for="parentId">Category</label>
-        <select class="form-control" [(ngModel)]="categoryDto.parentId" name="parentId" name="parentId">
+        <select class="form-control" [(ngModel)]="categoryDto.parentId" id="parentId" name="parentId">
           <option value="undefined" [disabled]="true">select</option>
           <option *ngFor="let category of categoryList" [value]="category.value">{{category.label}}</option>
         </select>
       </div>
   
-      <div class="inputField">
+      <div class="col-md-12">
         <label for="first_name">SubCategory</label>
-        <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="categoryDto.name" required />
+        <input class="form-control" type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="categoryDto.name" required />
       </div>
   
-      <div class="inputField">
+      <div class="col-md-12">
         <label for="description">Description</label>
-        <textarea name="description" id="Message" rows="4" placeholder="Enter description"
+        <textarea class="form-control" name="description" id="Message" rows="4" placeholder="Enter description"
           [(ngModel)]="categoryDto.description"></textarea>
       </div>
   
-      <div class="inputField">
+      <div class="col-md-12">
         <label for="add_file">Add File/Image File format:<span class="file_Format">
             jpg png jpeg or pdf</span></label>
         <div class="file_div">
@@ -30,7 +30,7 @@
         </div>
       </div>
   
-      <button type="submit" (click)="save()">Submit</button>
+      <button type="submit" class="btn btn-default" (click)="save()">Submit</button>
     </form>
   </div>
   

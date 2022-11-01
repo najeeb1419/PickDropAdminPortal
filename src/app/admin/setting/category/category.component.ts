@@ -44,6 +44,7 @@ export class CategoryComponent extends AppComponentBase implements OnInit {
       undefined,
       undefined,
       undefined,
+      'Category',
       0,
       200
     ).subscribe(result => {

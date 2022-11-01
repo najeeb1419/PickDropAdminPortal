@@ -38,7 +38,8 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
-
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,11 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
     ServiceProxyModule,
     SharedModule,
     NgxPaginationModule,
+    AgmDirectionModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyAwwjfOHy8ABJRzZROcYGVK7k2nKTO2d-E',
+      libraries: ['places']
+  })
   ],
   providers: [],
   entryComponents: [
