@@ -10,6 +10,10 @@ import { CategoryActionComponent } from './setting/category/category-action/cate
 import { SubCategoryActionComponent } from './setting/sub-category/sub-category-action/sub-category-action.component';
 import { VehicleActionComponent } from './vehicle/vehicle-action/vehicle-action.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+import { PickVehicleComponent } from './pick-vehicle/pick-vehicle.component';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction'
+
 @NgModule({
   declarations: [
     SettingComponent,
@@ -18,12 +22,18 @@ import { VehicleComponent } from './vehicle/vehicle.component';
     CategoryActionComponent,
     SubCategoryActionComponent,
     VehicleActionComponent,
-    VehicleComponent
+    VehicleComponent,
+    PickVehicleComponent,
+   
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyAwwjfOHy8ABJRzZROcYGVK7k2nKTO2d-E'
+  }),
+  AgmDirectionModule
   ]
 })
 export class AdminModule { }

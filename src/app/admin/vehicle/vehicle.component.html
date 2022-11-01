@@ -2,3 +2,51 @@
     <button class="btn btn-outline-success m-2" (click)="addEditVehicle()"><i class="bi bi-plus-circle"></i> Add
         Vehicle</button>
 </div>
+
+<div class="row m-2">
+    <div class="col-md-12">
+        <div class="table_container">
+            <div class="table_filter">
+                <div class="table_title">
+                    User
+                </div>
+                <div class="table_filter_btn">
+                    <button class="filter_btn"><i class="bi bi-funnel"></i>Filter</button>
+                </div>
+            </div>
+            <table class="table" style="text-align:center">
+                <thead>
+                    <th>Time Fare</th>
+                    <th>Cost For Km</th>
+                    <th>Base Fare</th>
+                    <th>Min Fare Amount</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rowData of vehicleDetailList">
+                        <td>
+                            {{rowData.costForKm}}
+                        </td>
+                        <td>{{rowData.timeFare}}</td>
+                        <td>{{rowData.baseFare}}</td>
+                        <td>{{rowData.minFareAmount}}</td>
+                        <td class="text-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" disabled
+                                    [checked]="rowData.isActive" />
+                                <label class="custom-control-label"></label>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-sm btn-outline-success me-3" title="Edit" (click)="addEditVehicleDetail(rowData.id)"
+                                value="Edit"><i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-danger " value="Delete"
+                                title="Delete"><i class="bi bi-trash3"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

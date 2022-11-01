@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
+import { AppConsts } from '@shared/AppConsts';
 import { CategoryDto, CategoryServiceProxy } from '@shared/service-proxies/service-proxies';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SubCategoryActionComponent } from './sub-category-action/sub-category-action.component';
@@ -13,6 +14,9 @@ import { SubCategoryActionComponent } from './sub-category-action/sub-category-a
 })
 export class SubCategoryComponent extends AppComponentBase implements OnInit {
   subCategoryList:CategoryDto[]=[];
+  attachmentUrl = AppConsts.attachmentUrl;
+
+  
   constructor(injector: Injector, private _modalService: BsModalService,
     private _categoryService: CategoryServiceProxy,) {
       super(injector)
@@ -28,6 +32,7 @@ export class SubCategoryComponent extends AppComponentBase implements OnInit {
       undefined,
       undefined,
       undefined,
+      'subCategory',
       0,
       200
     ).subscribe(result => {
